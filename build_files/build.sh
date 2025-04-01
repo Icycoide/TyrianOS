@@ -31,7 +31,5 @@ dnf5 install -y fish
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
-systemctl set-default graphical.target
-systemctl disable gdm
-systemctl enable sddm
+systemctl disable gdm --now
+systemctl enable sddm --now
