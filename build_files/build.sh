@@ -31,5 +31,5 @@ dnf5 install -y fish
 
 #### Example for enabling a System Unit File
 
-systemctl disable gdm --now
-systemctl enable sddm --now
+systemctl disable gdm
+systemctl enable sddm
