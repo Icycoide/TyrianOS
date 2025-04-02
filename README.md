@@ -1,17 +1,25 @@
 # <center>TyrianOS Linux</center>
 <center>a general purpose image</center>
-<center>
+
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos)](https://artifacthub.io/packages/search?repo=tyrianos)
-</center>
 
 # Purpose
 
 WIP section
 
 TyrianOS is based on the following image:
-- Fedora: `quay.io/fedora/fedora-bootc:41`
+- Fedora: `ghcr.io/ublue-os/kinoite-main:42`
 
 It uses KDE Plasma as desktop environment and is meant for general use.
+
+# What makes TyrianOS different from normal Fedora?
+
+- **Uses the __[ublue](https://universal-blue.org/)__ build system**
+	- TyrianOS is based on the universal-blue image of Fedora Kinoite, especially on Fedora 42. TyrianOS sometimes uses the beta version of Fedora.
+- **Includes [Fyra Labs' Terra](https://terra.fyralabs.com/) repo**
+	- Terra is a repository that is built on the Andaman toolchain, which simplifies the process of maintaining packages. Packages on Terra are automatically updated as soon as there's a new upstream release on a 30 minute interval. Packages on Terra are built by a team of maintainers with experience, ensuring the maintenance of a high quality of packages.
+
+More things are announced to come to TyrianOS soon. 
 
 # Prerequisites
 
