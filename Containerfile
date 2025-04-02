@@ -3,9 +3,9 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM quay.io/fedora/fedora-bootc:41
+FROM quay.io/fedora/fedora-kinoite:41
 
-RUN rpm-ostree cliwrap install-to-root /    
+#RUN rpm-ostree cliwrap install-to-root /    
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \

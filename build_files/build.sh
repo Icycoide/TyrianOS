@@ -21,7 +21,8 @@ dnf5 install -y @kde-desktop
 dnf5 install -y firefox
 #### Install fish
 dnf5 install -y fish
-
+#### (Re)install kernel
+dnf5 install -y kernel
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
