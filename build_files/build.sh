@@ -11,7 +11,8 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 dnf5 install -y tmux 
-
+#### Add Fyra Labs Terra repository
+dnf5 install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 #### Install KDE Plasma
 dnf5 install -y @kde-desktop
 #### Install KDE Plasma - Minimal
@@ -23,6 +24,9 @@ dnf5 install -y firefox
 dnf5 install -y fish
 #### (Re)install kernel
 dnf5 install -y kernel
+#### Install Papirus and Lightly
+dnf5 install papirus-icon-theme lightly-qt6
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
