@@ -12,7 +12,7 @@ set -ouex pipefail
 # this installs a package from fedora repos
 dnf5 install -y tmux 
 #### Add Fyra Labs Terra repository
-dnf5 install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+dnf5 install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release -y
 #### Install KDE Plasma
 dnf5 install -y @kde-desktop
 #### Install KDE Plasma - Minimal
