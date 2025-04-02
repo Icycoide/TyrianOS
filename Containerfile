@@ -14,6 +14,12 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
     ostree container commit
 
+RUN rm -rf /tmp/* /var/* && \
+    ostree container commit && \
+    mkdir -p /tmp /var/tmp && \
+    chmod 1777 /tmp /var/tmp
+
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint
+
