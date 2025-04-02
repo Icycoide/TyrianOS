@@ -24,8 +24,9 @@ dnf5 install -y firefox
 dnf5 install -y fish
 #### (Re)install kernel
 dnf5 install -y kernel
-#### Install Papirus and Lightly
-dnf5 install papirus-icon-theme lightly-qt6
+#### Install Papirus
+dnf5 install papirus-icon-theme -y 
+# dnf5 install lightly-qt6  --nogpgcheck -y
 
 # Use a COPR Example:
 #
