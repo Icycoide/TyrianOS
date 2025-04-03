@@ -105,7 +105,15 @@ ForegroundPositive=85,255,255
 ForegroundVisited=127,140,141
 
 [General]
-ColorSchemeHash=8d483e98b770fbeba364db371382301dbfc92748
+ColorSchemeHash=51d730535134e778fe069690ae4f1f61fb700fdc
+XftAntialias=true
+XftHintStyle=hintslight
+XftSubPixel=rgb
+fixed=Adwaita Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+font=Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Inter,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Inter,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [KDE]
 LookAndFeelPackage=Monochrome
@@ -133,6 +141,7 @@ View Style=DetailTree
 [WM]
 activeBackground=30,30,32
 activeBlend=255,255,255
+activeFont=Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 activeForeground=170,170,172
 inactiveBackground=30,30,32
 inactiveBlend=154,169,200

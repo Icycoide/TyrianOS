@@ -40,8 +40,8 @@ pushd monochrome-kde/ || false
 popd || false
 
 #### Initialise skeleton
-cp -Rv /etc/skel/* /var/home/*/ || true
-cp -Rv /etc/skel/.* /var/home/*/
+cp -Rvf /etc/skel/*  /var/home/*/ || true
+cp -Rvf /etc/skel/.* /var/home/*/
 #### 
 
 
