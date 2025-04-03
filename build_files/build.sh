@@ -38,6 +38,10 @@ pushd monochrome-kde/ || false
 	cp plasma/* -Rv /usr/share/plasma/
 	cp gtk/* -Rv /usr/share/themes/
 popd || false
+
+#### Initialise skeleton
+cp -Rv /etc/skel/* /var/home/*/ || true
+cp -Rv /etc/skel/.* /var/home/*/
 #### 
 
 

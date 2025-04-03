@@ -20,10 +20,10 @@ RUN rm -rf /tmp/* /var/* && \
     chmod 1777 /tmp /var/tmp && \
     ostree container commit
 
-RUN mkdir -p /etc/skel/ && \
-#	cp /etc/skel/* -Rv /var/home/*/ && \
-	cp /etc/skel/.* -Rv /var/home/*/ && \
-	ostree container commit
+#   RUN mkdir -p /etc/skel/ && \
+#   #	cp /etc/skel/* -Rv /var/home/*/ && \
+#   	cp /etc/skel/.* -Rv /var/home/*/ && \
+#   	ostree container commit
 
 ### LINTING
 ## Verify final image and contents are correct.
