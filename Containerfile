@@ -7,7 +7,7 @@ FROM ghcr.io/ublue-os/kinoite-main:42
 #RUN rpm-ostree cliwrap install-to-root /    
 COPY system_files /
 
-RUN mkdir /var/home/build/ && \
+RUN mkdir -p /var/home/build && \
 	ostree container commit
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
