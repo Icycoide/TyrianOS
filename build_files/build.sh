@@ -32,7 +32,7 @@ dnf5 install rsms-inter-fonts rsms-inter-vf-fonts -y
 #### Install Monochrome-KDE
 git clone https://github.com/pwyde/monochrome-kde
 pushd monochrome-kde/ || false
-	HOME=/etc/skel bash install.sh --install || false
+	sudo -u nobody HOME=/etc/skel bash install.sh --install || false
 popd || false
 #### 
 
