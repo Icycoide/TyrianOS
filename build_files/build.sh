@@ -28,7 +28,7 @@ dnf5 install -y kernel
 dnf5 install papirus-icon-theme -y 
 # dnf5 install lightly-qt6  --nogpgcheck -y
 #### Install Inter
-dnf5 install rsms-inter-fonts rsms-inter-vf-fonts
+dnf5 install rsms-inter-fonts rsms-inter-vf-fonts -y
 #### Install Monochrome-KDE
 git clone https://github.com/pwyde/monochrome-kde
 pushd monochrome-kde/ || false
