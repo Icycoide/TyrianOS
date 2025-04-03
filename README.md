@@ -1,7 +1,7 @@
 # <center>TyrianOS Linux</center>
 <center>a general purpose image</center>
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos)](https://artifacthub.io/packages/search?repo=tyrianos)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos)](https://artifacthub.io/packages/search?repo=tyrianos) [![Build Custom Image](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml/badge.svg)](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml)
 
 # Purpose
 
@@ -20,6 +20,67 @@ It uses KDE Plasma as desktop environment and is meant for general use.
 	- Terra is a repository that is built on the Andaman toolchain, which simplifies the process of maintaining packages. Packages on Terra are automatically updated as soon as there's a new upstream release on a 30 minute interval. Packages on Terra are built by a team of maintainers with experience, ensuring the maintenance of a high quality of packages.
 
 More things are announced to come to TyrianOS soon. 
+
+# Installation
+
+## 1. Rebase to the unsigned variant of the image
+
+```bash
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/icycoide/tyrianos:latest
+```
+
+Reboot:
+
+```
+systemctl reboot
+```
+
+## 2. Rebase to the signed variant of the image you chose
+
+For example, if you chose kinoite-nvidia as your choice, then run the following commands:
+
+```bash
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/kinoite-nvidia:latest
+```
+
+Reboot:
+
+```
+systemctl reboot
+```
+
+## 3. Nvidia GPU Configuration (Nvidia-only)
+
+Run this ujust command to setup the required kernel arguments:
+
+```
+ujust configure-nvidia
+```
+
+Reboot:
+
+```
+systemctl reboot
+```
+
+## Optimus laptops only
+
+For Optimus laptops, run this command:
+
+```
+ujust configure-nvidia-optimus
+```
+
+Reboot:
+
+```
+systemctl reboot
+```
+
+This configures Optimus laptops.
+
+
+# 🧰 Working with ublue
 
 # Prerequisites
 
