@@ -10,7 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y tmux git
 #### Add Fyra Labs Terra repository
 dnf5 install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release -y
 #### Install KDE Plasma
@@ -29,6 +29,13 @@ dnf5 install papirus-icon-theme -y
 # dnf5 install lightly-qt6  --nogpgcheck -y
 #### Install Inter
 dnf5 install rsms-inter-fonts rsms-inter-vf-fonts
+#### Install Monochrome-KDE
+git clone https://github.com/pwyde/monochrome-kde
+pushd monochrome-kde/ || false
+	HOME=/etc/skel bash install.sh --install || false
+popd || false
+#### 
+
 
 # Use a COPR Example:
 #

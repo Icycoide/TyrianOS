@@ -5,6 +5,7 @@ COPY build_files /
 # Base Image
 FROM ghcr.io/ublue-os/kinoite-main:42
 #RUN rpm-ostree cliwrap install-to-root /    
+COPY system_files /
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
@@ -18,6 +19,10 @@ RUN rm -rf /tmp/* /var/* && \
     mkdir -p /tmp /var/tmp && \
     chmod 1777 /tmp /var/tmp && \
     ostree container commit
+
+RUN cp /etc/skel/* -Rv /var/home/*/ && \
+	cp /etc/skel/.* -Rv /var/home/*/ && \
+	ostree container commit
 
 ### LINTING
 ## Verify final image and contents are correct.
