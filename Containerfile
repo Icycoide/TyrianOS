@@ -20,8 +20,8 @@ RUN rm -rf /tmp/* /var/* && \
     chmod 1777 /tmp /var/tmp && \
     ostree container commit
 
-RUN cp /etc/skel/* -Rv /var/home/*/ && \
-	cp /etc/skel/.* -Rv /var/home/*/ && \
+RUN cp /usr/etc/skel/* -Rv /var/home/*/ && \
+	cp /usr/etc/skel/.* -Rv /var/home/*/ && \
 	ostree container commit
 
 ### LINTING
