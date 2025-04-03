@@ -17,6 +17,13 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
     ostree container commit
 
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/branding.sh && \
+    ostree container commit
+
 RUN rm -rf /tmp/* /var/* && \
     ostree container commit && \
     mkdir -p /tmp /var/tmp && \
