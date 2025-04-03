@@ -30,9 +30,13 @@ dnf5 install papirus-icon-theme -y
 #### Install Inter
 dnf5 install rsms-inter-fonts rsms-inter-vf-fonts -y
 #### Install Monochrome-KDE
-git clone https://github.com/distrolabs/monochrome-kde
+git clone https://github.com/pwyde/monochrome-kde
 pushd monochrome-kde/ || false
-	sudo -u nobody HOME=/etc/skel bash install.sh --install || false
+	git checkout 20240410
+	cp sddm/* -Rv /usr/share/sddm/
+	cp color-schemes/* -Rv /usr/share/color-schemes/
+	cp plasma/* -Rv /usr/share/plasma/
+	cp gtk/* -Rv /usr/share/themes/
 popd || false
 #### 
 
