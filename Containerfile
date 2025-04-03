@@ -21,7 +21,7 @@ RUN rm -rf /tmp/* /var/* && \
     ostree container commit
 
 RUN mkdir -p /etc/skel/ && \
-	cp /etc/skel/* -Rv /var/home/*/ && \
+#	cp /etc/skel/* -Rv /var/home/*/ && \
 	cp /etc/skel/.* -Rv /var/home/*/ && \
 	ostree container commit
 
