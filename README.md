@@ -40,7 +40,7 @@ systemctl reboot
 For example, if you chose kinoite-nvidia as your choice, then run the following commands:
 
 ```bash
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/kinoite-nvidia:latest
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/icycoide/tyrianos:latest
 ```
 
 Reboot:
