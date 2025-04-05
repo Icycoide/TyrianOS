@@ -37,6 +37,7 @@ pushd monochrome-kde/ || false
 	cp color-schemes/* -Rv /usr/share/color-schemes/
 	cp plasma/* -Rv /usr/share/plasma/
 	cp gtk/* -Rv /usr/share/themes/
+	cp aurorae/* -Rv /usr/share/aurorae/
 popd || false
 
 #### Initialise skeleton
