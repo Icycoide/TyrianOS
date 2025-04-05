@@ -10,6 +10,9 @@ COPY system_files /
 RUN mkdir -p /var/home/build && \
 	ostree container commit
 
+RUN mkdir -p /usr/share/aurorae/themes && \
+	ostree container commit
+
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \

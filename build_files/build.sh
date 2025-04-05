@@ -25,7 +25,7 @@ dnf5 install -y firefox
 #### (Re)install kernel
 #dnf5 install -y kernel
 #### Install Papirus
-dnf5 install papirus-icon-theme -y 
+dnf5 install papirus-icon-theme -y
 # dnf5 install lightly-qt6  --nogpgcheck -y
 #### Install Inter
 dnf5 install rsms-inter-fonts rsms-inter-vf-fonts -y
@@ -43,7 +43,7 @@ popd || false
 #### Initialise skeleton
 cp -Rvf /etc/skel/*  /var/home/*/ || true
 cp -Rvf /etc/skel/.* /var/home/*/
-#### 
+####
 
 
 # Use a COPR Example:
