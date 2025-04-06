@@ -39,6 +39,14 @@ pushd monochrome-kde/ || false
 	cp gtk/* -Rv /usr/share/themes/
 	cp aurorae/* -Rv /usr/share/aurorae/
 popd || false
+#### Install charmbracelet Gum
+echo '[charm]
+name=Charm
+baseurl=https://repo.charm.sh/yum/
+enabled=1
+gpgcheck=1
+gpgkey=https://repo.charm.sh/yum/gpg.key' | sudo tee /etc/yum.repos.d/charm.repo
+sudo rpm --import https://repo.charm.sh/yum/gpg.key
 
 #### Initialise skeleton
 cp -Rvf /etc/skel/*  /var/home/*/ || true
