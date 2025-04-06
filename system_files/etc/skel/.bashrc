@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # .bashrc
 
 # Source global definitions
