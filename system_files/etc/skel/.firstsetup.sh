@@ -1,6 +1,5 @@
 #!/bin/bash
 
-kquitapp6 plasmashell
 
 source /etc/os-release
 export Color_Off='\033[0m'       # Text Reset
@@ -14,6 +13,7 @@ export BIWhite='\033[1;97m'      # White
 # gpu_type=$(echo "$gpu_type" | tr '[:upper:]' '[:lower:]')
 
 function tus.start {
+  kquitapp6 plasmashell
   echo -e "${BIWhite}Welcome${Color_Off}"
   echo -e "${White}${NAME} ${VERSION_ID}"
   echo -e "Website: ${HOME_URL}"
