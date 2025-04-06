@@ -97,11 +97,18 @@ function tus.end {
   read -rp "Thank you for installing TyrianOS! [ENTER]" >/dev/null
 }
 
+main() {
+  tus.start
+  tus.networking
+  tus.account
+  tus.drivers
+  tus.end
+}
+
 bail() { echo -e "${BRed}ERROR: First time setup failed with the following message:${Color_Off} $1"; exit 1; }
 
-tus.start
-tus.networking
-tus.account
-tus.drivers
-tus.end
+if [ -f "/etc/.tuspending" ]; then
+    main
+fi
+
 exit
