@@ -105,7 +105,7 @@ main() {
   tus.end
 }
 
-bail() { echo -e "${BRed}ERROR: First time setup failed with the following message:${Color_Off} $1"; exit 1; }
+bail() { echo -e "${BRed}ERROR: First time setup failed with the following message:${Color_Off} $1"; read; exit 1; }
 
 if [ -f "/etc/.tuspending" ]; then
     main
