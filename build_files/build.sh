@@ -55,8 +55,7 @@ cp -Rvf /etc/skel/.* /var/home/*/
 ####
 
 #### Become compliant with Fedora guidelines, https://fedoraproject.org/wiki/Marketing/Branding
-dnf -y remove fedora-bookmarks fedora-backgrounds-kde
-
+dnf -y remove fedora-bookmarks fedora-backgrounds-kde plasma-lookandfeel-fedora
 
 # Use a COPR Example:
 #
