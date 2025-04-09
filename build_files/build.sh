@@ -54,6 +54,9 @@ cp -Rvf /etc/skel/*  /var/home/*/ || true
 cp -Rvf /etc/skel/.* /var/home/*/
 ####
 
+#### Become compliant with Fedora guidelines, https://fedoraproject.org/wiki/Marketing/Branding
+dnf -y uninstall fedora-bookmarks fedora-backgrounds-kde
+
 
 # Use a COPR Example:
 #
