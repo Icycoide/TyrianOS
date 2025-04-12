@@ -51,8 +51,8 @@ function tus.drivers {
       gum spin --title="Installing Intel GPU drivers..." -- pkexec rpm-ostree install intel-media-driver -y || bail "GPU driver installation failed"
       ;;
     amd|AMD)
-      gum spin --title="Installing AMD GPU drivers..." -- pkexec rpm-ostree override remove mesa-va-drivers --install mesa-va-drivers-freeworld -y || bail "GPU driver installation failed"
-      gum spin --title="Hold on a bit more..." -- pkexec rpm-ostree override remove mesa-vdpau-drivers --install mesa-vdpau-drivers-freeworld -y || bail "GPU driver installation failed"
+      gum spin --title="Installing AMD GPU drivers..." -- pkexec rpm-ostree override remove mesa-va-drivers --install mesa-va-drivers-freeworld || bail "GPU driver installation failed"
+      gum spin --title="Hold on a bit more..." -- pkexec rpm-ostree override remove mesa-vdpau-drivers --install mesa-vdpau-drivers-freeworld || bail "GPU driver installation failed"
       ;;
     nvidia|Nvidia)
       gum spin --title="Installing NVIDIA GPU drivers..." -- pkexec rpm-ostree install libva-nvidia-driver -y || bail "GPU driver installation failed"
