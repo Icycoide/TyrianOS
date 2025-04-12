@@ -13,7 +13,7 @@ export BIWhite='\033[1;97m'      # White
 # gpu_type=$(echo "$gpu_type" | tr '[:upper:]' '[:lower:]')
 
 function tus.start {
-  kquitapp6 plasmashell
+  killall plasmashell
   echo -e "${BIWhite}Welcome${Color_Off}"
   echo -e "${White}${NAME} ${VERSION_ID}"
   echo -e "Website: ${HOME_URL}"
@@ -48,7 +48,7 @@ function tus.drivers {
   gpu_type=$(gum choose --header="What kind of GPU do you have?" "Intel" "AMD" "Nvidia")
   case "$gpu_type" in
     intel|Intel)
-      gum spin --title="Installing Intel GPU drivers..." -- pkexec rpm-ostree install intel-media-driver -y || bail "GPU driver installation failed"
+      gum spin --title="Installing Intel GPU drivers..." -- pkexec rpm-ostree override remove libva-intel-media-driver --install intel-media-driver || bail "GPU driver installation failed"
       ;;
     amd|AMD)
       gum spin --title="Installing AMD GPU drivers..." -- pkexec rpm-ostree override remove mesa-va-drivers --install mesa-va-drivers-freeworld || bail "GPU driver installation failed"
@@ -65,7 +65,7 @@ function tus.drivers {
 
 function tus.end {
   gum spin --title="Installing codecs and multimedia plugins..." -- pkexec rpm-ostree install -y gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi -y
-  gum spin --title="Still installing codecs and multimedia plugins..." -- pkexec rpm-ostree override remove libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free --install ffmpeg -y
+  gum spin --title="Still installing codecs and multimedia plugins..." -- pkexec rpm-ostree override remove libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free --install ffmpeg
 
   pkexec rm /etc/.tuspending
   kstart plasmashell &
