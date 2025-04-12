@@ -13,6 +13,7 @@ export BIWhite='\033[1;97m'      # White
 # gpu_type=$(echo "$gpu_type" | tr '[:upper:]' '[:lower:]')
 
 function tus.start {
+  clear
   killall plasmashell
   echo -e "${BIWhite}Welcome${Color_Off}"
   echo -e "${White}${NAME} ${VERSION_ID}"
@@ -21,6 +22,7 @@ function tus.start {
 }
 
 function tus.networking {
+  clear
   option=$(gum choose --header="Would you like to set up Networking?" "Yes" "Skip")
   case "$option" in
     Yes)
@@ -33,6 +35,7 @@ function tus.networking {
 }
 
 function tus.account {
+  clear
   option=$(gum choose --header="Would you like to customise your account further?" "Yes" "Skip")
   case "$option" in
     Yes)
@@ -45,10 +48,11 @@ function tus.account {
 }
 
 function tus.drivers {
+  clear
   gpu_type=$(gum choose --header="What kind of GPU do you have?" "Intel" "AMD" "Nvidia")
   case "$gpu_type" in
     intel|Intel)
-      gum spin --title="Installing Intel GPU drivers..." -- pkexec rpm-ostree override remove libva-intel-media-driver --install intel-media-driver || bail "GPU driver installation failed"
+      echo "Nothing to do!"; sleep 2
       ;;
     amd|AMD)
       gum spin --title="Installing AMD GPU drivers..." -- pkexec rpm-ostree override remove mesa-va-drivers --install mesa-va-drivers-freeworld || bail "GPU driver installation failed"
@@ -64,11 +68,13 @@ function tus.drivers {
 }
 
 function tus.end {
+  clear
   gum spin --title="Installing codecs and multimedia plugins..." -- pkexec rpm-ostree install -y gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi -y
   gum spin --title="Still installing codecs and multimedia plugins..." -- pkexec rpm-ostree override remove libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free --install ffmpeg
 
   pkexec rm /etc/.tuspending
   kstart plasmashell &
+  clear
   echo "All done!"
   option=$(gum choose --header="What do you want to do next?" "Open Settings" "Install apps" "Quit")
   case "$option" in
@@ -85,6 +91,7 @@ function tus.end {
       echo "?."
       ;;
   esac
+  clear
   option=$(gum choose --header="To finish the installation of GPU drivers, a reboot is pending. Do you want to reboot now or later?" "Restart now" "Later")
   case "$option" in
     "Restart now")
@@ -94,6 +101,7 @@ function tus.end {
       echo "OK"
       ;;
   esac
+  clear
   read -rp "Thank you for installing TyrianOS! [ENTER]" >/dev/null
 }
 
