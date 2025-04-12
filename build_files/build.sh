@@ -9,6 +9,10 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+## Note from TyrianOS developer: Instructions unclear, only the free repos were enabled.
+
+dnf5 install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+
 # this installs a package from fedora repos
 dnf5 install -y tmux git
 #### Add Fyra Labs Terra repository
