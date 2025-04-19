@@ -2,7 +2,7 @@
 Type=Application
 Name=TyrianOS First Time Setup
 Comment=Run first-time setup in Konsole
-Exec=konsole -e /home/$USER/.firstsetup.sh
+Exec=konsole -e tyrianos-firstsetup
 Terminal=false
 Icon=utilities-terminal
 Categories=System;

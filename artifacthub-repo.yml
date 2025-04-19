@@ -4,5 +4,4 @@
 
 repositoryID: 23882fd3-c242-455e-9e60-97367abc5664 # Fill in with your own credentials 
 owners: # (optional, used to claim repository ownership)
-  - name: My Name
-    email: my_email@email.com
+  - name: kevadesu
