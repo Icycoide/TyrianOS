@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/kinoite-main:41
+FROM ghcr.io/ublue-os/kinoite-main:42
 #RUN rpm-ostree cliwrap install-to-root /    
 COPY system_files /
 

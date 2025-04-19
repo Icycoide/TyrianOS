@@ -1,5 +1,6 @@
-# <center>TyrianOS Linux</center>
-<center>a general purpose image</center>
+<p align="center"><img src="system_files/usr/share/icons/hicolor/scalable/apps/start-here.svg" height="120"></p>
+# <h1 align="center">TyrianOS Linux</h1>
+<p align="center">a general purpose fedora-based distro</p>
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos)](https://artifacthub.io/packages/search?repo=tyrianos) [![Build Custom Image](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml/badge.svg)](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml)
 
@@ -8,7 +9,7 @@
 WIP section
 
 TyrianOS is based on the following image:
-- Fedora: `ghcr.io/ublue-os/kinoite-main:41`
+- Fedora: `ghcr.io/ublue-os/kinoite-main:42`
 
 It uses KDE Plasma as desktop environment and is meant for general use.
 
@@ -24,64 +25,20 @@ It uses KDE Plasma as desktop environment and is meant for general use.
 
 More things are announced to come to TyrianOS soon. 
 
+
 # Installation
 
-## 1. Rebase to the unsigned variant of the image
+On real hardware:
 
-```bash
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/icycoide/tyrianos:latest
-```
+1. Grab the latest ISO under artifacts from the latest successful job of workflow [Build ISOs](https://github.com/Icycoide/TyrianOS/actions/workflows/build-iso.yml)
+2. Flash it on a USB or any other bootable media
+3. Boot into the media and follow the steps of the installer.
 
-Reboot:
+In a virtual machine: 
 
-```
-systemctl reboot
-```
-
-## 2. Rebase to the signed variant of the image you chose
-
-For example, if you chose kinoite-nvidia as your choice, then run the following commands:
-
-```bash
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/icycoide/tyrianos:latest
-```
-
-Reboot:
-
-```
-systemctl reboot
-```
-
-## 3. Nvidia GPU Configuration (Nvidia-only)
-
-Run this ujust command to setup the required kernel arguments:
-
-```
-ujust configure-nvidia
-```
-
-Reboot:
-
-```
-systemctl reboot
-```
-
-## Optimus laptops only
-
-For Optimus laptops, run this command:
-
-```
-ujust configure-nvidia-optimus
-```
-
-Reboot:
-
-```
-systemctl reboot
-```
-
-This configures Optimus laptops.
-
+1. Grab the latest ISO under artifacts from the latest successful job of workflow [Build ISOs](https://github.com/Icycoide/TyrianOS/actions/workflows/build-iso.yml)
+2. In the settings of the hypervisor, add the downloaded ISO as CD or generally media, and configure the image to be at the highest boot priority in the virtual machine's settings
+3. Boot into the image and follow the steps of the installer.
 
 # 🧰 Working with ublue
 
