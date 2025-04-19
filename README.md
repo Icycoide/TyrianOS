@@ -1,5 +1,5 @@
 <p align="center"><img src="system_files/usr/share/icons/hicolor/scalable/apps/start-here.svg" height="120"></p>
-# <h1 align="center">TyrianOS Linux</h1>
+<h1 align="center">TyrianOS Linux</h1>
 <p align="center">a general purpose fedora-based distro</p>
 
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos)](https://artifacthub.io/packages/search?repo=tyrianos) [![Build Custom Image](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml/badge.svg)](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml)
