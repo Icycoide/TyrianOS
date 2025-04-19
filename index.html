@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <title>TyrianOS</title>
+    <link rel=stylesheet href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="subcontainer">
+            <header>
+                <div>
+                    <br>
+                    <img src="assets/tyrianos-logo.svg" alt="TyrianOS" height="120">
+                    <p>a general-purpose OS</p>
+                    <a class="btn" href="https://github.com/Icycoide/TyrianOS/actions/runs/14551626990/artifacts/2974038128">Download (x64)</a>
+                    <a class="btn" href="https://github.com/Icycoide/TyrianOS">View repository</a>
+                    <h6><code>hash: sha256:97ef5d45f177008303d7373718c6d49da36694d0b7f5cd9f92dee1833b5414a2</code></h6>
+                    <p>
+                        <a href="https://artifacthub.io/packages/search?repo=tyrianos"><img src="https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos" alt="Artifact Hub"></a>
+                        <a href="https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml"><img src="https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml/badge.svg" alt="Build Custom Image"></a>
+                        <a href="https://github.com/Icycoide/TyrianOS/actions/workflows/build-iso.yml"><img src="https://github.com/Icycoide/TyrianOS/actions/workflows/build-iso.yml/badge.svg" alt="Build ISOs"></a>
+                    </p>
+                </div>
+            </header>
+            <div class="card" style="background-color: #505052; padding: 15px; margin-bottom: 15px;">
+                <div>
+                    <h1>Why TyrianOS?</h1>
+                    <p>
+                        TyrianOS is an immutable operating system based on <a href="https://fedoraproject.org/atomic-desktops/kinoite/">Fedora Kinoite</a>, using <a href="https://kde.org/plasma-desktop/">KDE Plasma</a> as the desktop environment.
+                    </p>
+                    <p>
+                        This means that TyrianOS provides a safe and reliable experience, with very low risk of breaking
+                        your system.
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="background-color: #505052; padding: 15px; margin-bottom: 15px;">
+                <div>
+                    <h1>What does TyrianOS do differently from Kinoite?</h1>
+                    <p>
+                        Great question! First of all, TyrianOS uses the <b>ublue</b> version of Kinoite, which offers additional optimisation.
+                        We also include the <b><a href="https://terra.fyralabs.com/">Terra</a></b> repository for anyone who prefers to install a wider range of packages in the <b>Toolbx</b> container.
+                    </p>
+                    <p>
+                        We also include a customised, more complete KDE Plasma environment than Kinoite, since we install the @kde-desktop group, making sure that nothing is left behind.
+                    </p>
+                </div>
+            </div>
+            <p>Developed by:</p>
+            <a style="font-family: Roboto Mono;" href="https://icycoide.github.io">[Icycoide></a>
+        </div>
+    </div>
+</body>
