@@ -67,6 +67,31 @@ function tus.drivers {
   esac
 }
 
+function tus.browser {
+  clear
+  option=$(gum choose --header="Choose a browser to install" "Firefox" "Chromium" "Zen Browser" "GNOME Web" "Vivaldi" "Skip")
+  case "$option" in
+    "Firefox")
+      flatpak install --system -y org.mozilla.firefox
+    ;;
+    "Chromium")
+      flatpak install --system -y org.chromium.Chromium
+    ;;
+    "Zen Browser")
+      flatpak install --system -y app.zen_browser.zen
+    ;;
+    "GNOME Web")
+      flatpak install --system -y org.gnome.Epiphany
+    ;;
+    "Vivaldi")
+      flatpak install --system -y com.vivaldi.Vivaldi
+    ;;
+    Skip)
+      echo "Skipped browser installation."
+    ;;
+  esac
+}
+
 function tus.end {
   clear
   gum spin --title="Installing codecs and multimedia plugins..." -- pkexec rpm-ostree install -y gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi -y
@@ -110,6 +135,7 @@ main() {
   tus.networking
   tus.account
   tus.drivers
+  tus.browser
   tus.end
 }
 
