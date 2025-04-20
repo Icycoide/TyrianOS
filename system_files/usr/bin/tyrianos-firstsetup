@@ -108,20 +108,9 @@ tus_browser() {
 
 tus_end() {
   clear
-  gum_spin "Installing multimedia codecs…" \
-    pkexec rpm-ostree install -y \
-      gstreamer1-plugin-libav \
-      gstreamer1-plugins-bad-free-extras \
-      gstreamer1-plugins-bad-freeworld \
-      gstreamer1-plugins-ugly \
-      gstreamer1-vaapi
+  gum_spin 'Installing multimedia codecs…' pkexec rpm-ostree install -y gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi
 
-  gum_spin "Upgrading FFmpeg stack…" \
-    pkexec rpm-ostree override remove \
-      libavcodec-free libavfilter-free libavformat-free \
-      libavutil-free libpostproc-free libswresample-free \
-      libswscale-free \
-    --install ffmpeg
+  gum_spin 'Upgrading FFmpeg stack…' pkexec rpm-ostree override remove libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free --install ffmpeg
 
   gum_spin "Queuing system upgrade…" pkexec rpm-ostree upgrade
 
