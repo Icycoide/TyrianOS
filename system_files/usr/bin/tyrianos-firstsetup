@@ -1,179 +1,148 @@
-#!/usr/bin/env bash
-set -euo pipefail
-IFS=$'\n\t'
+#!/bin/bash
 
-readonly COLOR_OFF='\033[0m'
-readonly RED='\033[1;31m'
-readonly WHITE='\033[0;37m'
-readonly BOLD_WHITE='\033[1;97m'
 
 source /etc/os-release
+export Color_Off='\033[0m'       # Text Reset
+export BRed='\033[1;31m'         # Red
+export White='\033[0;37m'        # White
+export BIWhite='\033[1;97m'      # White
 
-gum_spin() {
-  local title="$1"; shift
-  gum spin --title="$title" -- "$@" || bail "Command failed: ${*}"
-}
 
-prompt_dispatch() {
-  local header="$1" callback="$2" opts=("${!3}")
-  local choice
-  choice=$(gum choose --header="$header" "${opts[@]}")
-  "$callback" "$choice"
-}
+# read -rp "What kind of GPU do you have? (intel/amd/nvidia): " gpu_type
 
-bail() {
-  echo -e "${RED}ERROR:${COLOR_OFF} $1"
-  read -rp "Press [ENTER] to exit..."
-  exit 1
-}
+# gpu_type=$(echo "$gpu_type" | tr '[:upper:]' '[:lower:]')
 
-tus_start() {
+function tus.start {
   clear
-  killall plasmashell 2>/dev/null || true
-  echo -e "${BOLD_WHITE}Welcome to TyrianOS First-Time Setup${COLOR_OFF}"
-  echo -e "${WHITE}${NAME} ${VERSION_ID}${COLOR_OFF}"
-  echo -e "Homepage: ${HOME_URL}"
-  read -rp "Press [ENTER] to continue…" 
+  killall plasmashell
+  echo -e "${BIWhite}Welcome${Color_Off}"
+  echo -e "${White}${NAME} ${VERSION_ID}"
+  echo -e "Website: ${HOME_URL}"
+  read -rp "[ENTER]" >/dev/null
 }
 
-tus_networking() {
-  prompt_dispatch \
-    "Set up Networking?" \
-    tus_networking_handler \
-    opts_networking[@]
-}
-
-tus_networking_handler() {
-  case "$1" in
-    Yes)  kcmshell6 kcm_networkmanagement ;;
-    Skip) echo "Skipping networking."     ;;
+function tus.networking {
+  clear
+  option=$(gum choose --header="Would you like to set up Networking?" "Yes" "Skip")
+  case "$option" in
+    Yes)
+      kcmshell6 kcm_networkmanagement
+      ;;
+    Skip)
+      echo "Skipped networking setup."
+      ;;
   esac
 }
 
-opts_networking=(Yes Skip)
-
-tus_account() {
-  prompt_dispatch \
-    "Customize account further?" \
-    tus_account_handler \
-    opts_account[@]
-}
-
-tus_account_handler() {
-  case "$1" in
-    Yes)  kcmshell6 kcm_users ;;
-    Skip) echo "Skipping account customization." ;;
+function tus.account {
+  clear
+  option=$(gum choose --header="Would you like to customise your account further?" "Yes" "Skip")
+  case "$option" in
+    Yes)
+      kcmshell6 kcm_users
+      ;;
+    Skip)
+      echo "Skipped account setup."
+      ;;
   esac
 }
 
-opts_account=(Yes Skip)
-
-declare -A gpu_actions=(
-  [intel]="echo 'Intel GPU detected — no action needed.'; sleep 1"
-  [amd]="gum_spin 'Installing AMD VA drivers…'   pkexec rpm-ostree override remove mesa-va-drivers --install mesa-va-drivers-freeworld
-       gum_spin 'Installing AMD VDPAU drivers…' pkexec rpm-ostree override remove mesa-vdpau-drivers --install mesa-vdpau-drivers-freeworld"
-  [nvidia]="gum_spin 'Installing NVIDIA drivers…' pkexec rpm-ostree install libva-nvidia-driver -y"
-)
-
-tus_drivers() {
+function tus.drivers {
   clear
-  local gpu
-  gpu=$(gum choose --header="What GPU do you have?" Intel AMD Nvidia)
-  gpu="${gpu,,}"  # lowercase
-  if [[ -n "${gpu_actions[$gpu]:-}" ]]; then
-    eval "${gpu_actions[$gpu]}"
-  else
-    echo "Unknown GPU type: '$gpu'. Skipping."
-  fi
+  gpu_type=$(gum choose --header="What kind of GPU do you have?" "Intel" "AMD" "Nvidia")
+  case "$gpu_type" in
+    intel|Intel)
+      echo "Nothing to do!"; sleep 2
+      ;;
+    amd|AMD)
+      gum spin --title="Installing AMD GPU drivers..." -- pkexec rpm-ostree override remove mesa-va-drivers --install mesa-va-drivers-freeworld || bail "GPU driver installation failed"
+      gum spin --title="Hold on a bit more..." -- pkexec rpm-ostree override remove mesa-vdpau-drivers --install mesa-vdpau-drivers-freeworld || bail "GPU driver installation failed"
+      ;;
+    nvidia|Nvidia)
+      gum spin --title="Installing NVIDIA GPU drivers..." -- pkexec rpm-ostree install libva-nvidia-driver -y || bail "GPU driver installation failed"
+      ;;
+    *)
+      echo "Unknown GPU type. Skipping GPU driver installation."
+      ;;
+  esac
 }
 
-declare -A browser_map=(
-  [Firefox]="org.mozilla.firefox"
-  [Chromium]="org.chromium.Chromium"
-  [Zen\ Browser]="app.zen_browser.zen"
-  [GNOME\ Web]="org.gnome.Epiphany"
-  [Vivaldi]="com.vivaldi.Vivaldi"
-)
-
-tus_browser() {
+function tus.browser {
   clear
-  local choice
-  choice=$(gum choose --header="Choose a browser to install" "${!browser_map[@]}" Skip)
-  if [[ "$choice" != Skip ]]; then
-    flatpak install -y "${browser_map[$choice]}"
-  else
-    echo "Skipping browser installation."
-  fi
+  option=$(gum choose --header="Choose a browser to install" "Firefox" "Chromium" "Zen Browser" "GNOME Web" "Vivaldi" "Skip")
+  case "$option" in
+    "Firefox")
+      flatpak install --system -y org.mozilla.firefox
+    ;;
+    "Chromium")
+      flatpak install --system -y org.chromium.Chromium
+    ;;
+    "Zen Browser")
+      flatpak install --system -y app.zen_browser.zen
+    ;;
+    "GNOME Web")
+      flatpak install --system -y org.gnome.Epiphany
+    ;;
+    "Vivaldi")
+      flatpak install --system -y com.vivaldi.Vivaldi
+    ;;
+    Skip)
+      echo "Skipped browser installation."
+    ;;
+  esac
 }
 
-tus_end() {
+function tus.end {
   clear
-  gum_spin "Installing multimedia codecs…" \
-    pkexec rpm-ostree install -y \
-      gstreamer1-plugin-libav \
-      gstreamer1-plugins-bad-free-extras \
-      gstreamer1-plugins-bad-freeworld \
-      gstreamer1-plugins-ugly \
-      gstreamer1-vaapi
-
-  gum_spin "Upgrading FFmpeg stack…" \
-    pkexec rpm-ostree override remove \
-      libavcodec-free libavfilter-free libavformat-free \
-      libavutil-free libpostproc-free libswresample-free \
-      libswscale-free \
-    --install ffmpeg
-
-  gum_spin "Queuing system upgrade…" pkexec rpm-ostree upgrade
-
+  gum spin --title="Installing codecs and multimedia plugins..." -- pkexec rpm-ostree install -y gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-bad-freeworld gstreamer1-plugins-ugly gstreamer1-vaapi -y
+  gum spin --title="Still installing codecs and multimedia plugins..." -- pkexec rpm-ostree override remove libavcodec-free libavfilter-free libavformat-free libavutil-free libpostproc-free libswresample-free libswscale-free --install ffmpeg
+  gum spin --title="Queuing updates (if any)..." -- pkexec rpm-ostree upgrade
   pkexec touch /etc/.tusdone
   kstart plasmashell &
-
   clear
-  prompt_dispatch \
-    "Setup complete! What next?" \
-    tus_end_handler_phase1 \
-    opts_end_phase1[@]
-}
-
-tus_end_handler_phase1() {
-  case "$1" in
-    "Open Settings") systemsettings ;;
-    "Install apps") plasma-discover ;;
-    Quit) exit 0 ;;
-    *) echo "No valid choice selected." ;;
-  esac
-
-  clear
-  prompt_dispatch \
-    "Reboot now or later?" \
-    tus_end_handler_phase2 \
-    opts_end_phase2[@]
-}
-
-tus_end_handler_phase2() {
-  case "$1" in
-    "Restart now") systemctl reboot -i ;;
-    Later)         echo "You can reboot later." ;;
+  echo "All done!"
+  option=$(gum choose --header="What do you want to do next?" "Open Settings" "Install apps" "Quit")
+  case "$option" in
+    "Open Settings")
+      systemsettings
+      ;;
+    "Install apps")
+      plasma-discover
+      ;;
+    Quit)
+      exit
+      ;;
+    *)
+      echo "?."
+      ;;
   esac
   clear
-  read -rp "Thank you for installing TyrianOS! [ENTER]"
+  option=$(gum choose --header="To finish the installation of GPU drivers, a reboot is pending. Do you want to reboot now or later?" "Restart now" "Later")
+  case "$option" in
+    "Restart now")
+      systemctl reboot -i
+      ;;
+    "Later")
+      echo "OK"
+      ;;
+  esac
+  clear
+  read -rp "Thank you for installing TyrianOS! [ENTER]" >/dev/null
 }
-
-opts_end_phase1=( "Open Settings" "Install apps" Quit )
-
-opts_end_phase2=( "Restart now" Later )
 
 main() {
-  tus_start
-  tus_networking
-  tus_account
-  tus_drivers
-  tus_browser
-  tus_end
+  tus.start
+  tus.networking
+  tus.account
+  tus.drivers
+  tus.browser
+  tus.end
 }
 
-if [[ ! -f /etc/.tusdone ]]; then
-  main
+bail() { echo -e "${BRed}ERROR: First time setup failed with the following message:${Color_Off} $1"; read; exit 1; }
+
+if [ ! -f "/etc/.tusdone" ]; then
+    main
 fi
 
-exit 0
+exit
