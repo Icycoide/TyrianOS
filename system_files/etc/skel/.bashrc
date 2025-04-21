@@ -30,4 +30,6 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=1000
 
-echo "You're currently inside a system shell session. For a fully mutable envrionment where you may install programs freely, please refer to the Toolbx documentation at: 'https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/'. "
+if ! [[ "$TOOLBOX_PATH" = "/usr/bin/toolbox" ]]; then
+	echo "You're currently inside a system shell session. For a fully mutable envrionment where you may install programs freely, please refer to the Toolbx documentation at: 'https://docs.fedoraproject.org/en-US/fedora-silverblue/toolbox/'. "
+fi
