@@ -22,6 +22,22 @@
                     <a class="btn" href="https://github.com/Icycoide/TyrianOS/actions/runs/14583969786/artifacts/2982443619">Download (x64)</a>
                     <a class="btn" href="https://github.com/Icycoide/TyrianOS">View repository</a>
                     <h6><code>hash: sha256:e5b6d18e91c08cb824ed427756a1a6e93a1302176dcd09594f0fd293f86affd2</code></h6>
+                    <details>
+                        <summary>Note before downloading</summary>
+                        <p align="left">
+                            Dear TyrianOS users, <br><br>
+                            There is currently an issue with the latest build of TyrianOS which does not properly mark the disk image as ISOHYBRID, causing some issues booting. <br><br>
+
+                            For a temporary workaround, format your USB as FAT32 and MBR, and copy the contents of the ISO to it. Your machine will automatically detect the bootx64.efi file included on the disk. <br><br>
+
+                            While it might help to get it booting, on behalf of the Fedora project and their many SIG's, we would like to announce you should NEVER use Ventoy to boot any Fedora related distros as it's LVM emulation system is a major point of failure which causes many things to break, and allows malware such as rootkits to easy inject itself into the boot process and go undetected. <br><br>
+
+                            Sorry for this inconvenience. <br><br>
+                            In fact, as of Fedora 40, Ventoy booting is unsupported and we stopped helping people who booted and installed using it <br><br>
+                            
+                            -laniku
+                        </p>
+                    </details>
                     <p>
                         <a href="https://artifacthub.io/packages/search?repo=tyrianos"><img src="https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos" alt="Artifact Hub"></a>
                         <a href="https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml"><img src="https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml/badge.svg" alt="Build Custom Image"></a>

@@ -14,6 +14,14 @@ a {
     text-decoration: underline;
 }
 
+details:hover {
+    color: white;
+}
+
+details:active {
+    color: rgb(75, 75, 75);
+}
+
 button, .btn {
     background-color: #1e1e20;
     color: white;
