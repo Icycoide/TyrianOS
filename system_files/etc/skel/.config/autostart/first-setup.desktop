@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=TyrianOS First Time Setup
-Comment=Run first-time setup in Konsole
-Exec=konsole -e /home/$USER/.firstsetup.sh
-Terminal=false
-Icon=utilities-terminal
-Categories=System;
-X-GNOME-Autostart-enabled=true
