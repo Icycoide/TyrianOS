@@ -12,8 +12,8 @@ source /usr/lib/os-release || false
 IMAGE_PRETTY_NAME="TyrianOS"
 IMAGE_LIKE="fedora"
 HOME_URL="https://icycoide.github.io/TyrianOS"
-SUPPORT_URL="https://github.com/Icycoide/TyrianOS/issues/"
-BUG_SUPPORT_URL="https://github.com/Icycoide/TyrianOS/issues/"
+SUPPORT_URL="https://discord.gg/3PRMhaBuuT"
+BUG_SUPPORT_URL="https://discord.gg/3PRMhaBuuT"
 CODE_NAME="Glarus"
 #VERSION="${VERSION:-00.00000000}"
 IMAGE_NAME=tyrianos
