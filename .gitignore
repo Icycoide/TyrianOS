@@ -3,4 +3,3 @@ _build_*
 output
 _build-*/**
 image.toml
-MigrationScripts
