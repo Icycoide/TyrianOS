@@ -5,6 +5,7 @@ _default:
 	#!/usr/bin/bash
 	source /usr/lib/tyrianos/cli/colorvars.sh
 	echo "TyrianOS Developer Tools"
-	/usr/bin/tydev --list --list-heading $'commands:\n' --list-prefix $' - '
+	/usr/bin/tydev --list --list-heading $'commands:\n' --list-prefix $' -> '
 	
 import "/usr/share/tyrianos/just/10-tempinstall.just"
+import "/usr/share/tyrianos/just/60-releasechannel.just"
