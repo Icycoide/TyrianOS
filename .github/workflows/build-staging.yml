@@ -3,7 +3,7 @@ name: Build TyrianOS EDGE
 on:
   pull_request:
     branches:
-      - testing
+      - main
   schedule:
     - cron: '50 09 * * *'  # 9:50am UTC everyday
   push:
