@@ -1,5 +1,5 @@
 ---
-name: Build TyrianOS (EDGE)
+name: Build TyrianOS EDGE
 on:
   pull_request:
     branches:
@@ -91,8 +91,9 @@ jobs:
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
         with:
           containerfiles: |
-#            ./Containerfile
-            ./Containerfile-BETA
+            ./Containerfile
+# Temporarily disabled
+#            ./Containerfile-BETA
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
