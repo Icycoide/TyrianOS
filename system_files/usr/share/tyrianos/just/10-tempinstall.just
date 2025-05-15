@@ -1,4 +1,4 @@
-# Install package tmeporarily until next boot
+# Install package temporarily until next boot
 temp-install +PKGS:
 	#!/usr/bin/bash
 	PKGS="{{ PKGS }}"

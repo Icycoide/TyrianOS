@@ -9,3 +9,4 @@ _default:
 	
 import "/usr/share/tyrianos/just/10-tempinstall.just"
 import "/usr/share/tyrianos/just/60-releasechannel.just"
+import "/usr/share/tyrianos/just/20-repairinstall.just"
