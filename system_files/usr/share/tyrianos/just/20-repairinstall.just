@@ -16,11 +16,11 @@ repair-options ACTION="" ADDITIONAL_OPTIONS="":
 	case "$ACTION" in
 		repair)
 			mkdir $HOME/.var/log/tyrianos/ -pv || true
-			read -pr "Save all work and close all applications, then press [ENTER]"
+			read -p "Save all work and close all applications, then press [ENTER]" NOTHING
 			echo "Repair log will be saved in $HOME/.var/log/tyrianos/"
 			sleep 1
 			full_repair | tee $HOME/.var/log/tyrianos/OS_Repair-$(date +%F-%H-%M-%S)
-			read -pr "Press [ENTER] to reboot." NOTHING; reboot
+			read -p "Press [ENTER] to reboot." NOTHING; reboot
 		;;
 		reset)
 			echo "not implemented yet"
