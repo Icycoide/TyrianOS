@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "-- TyrianOS Administrator Reset Tool"
+
+echo "-- Flag specified: $TART_FLAG"

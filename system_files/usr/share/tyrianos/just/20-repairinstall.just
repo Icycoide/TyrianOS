@@ -22,12 +22,16 @@ repair-options ACTION="" ADDITIONAL_OPTIONS="":
 			full_repair | tee $HOME/.var/log/tyrianos/OS_Repair-$(date +%F-%H-%M-%S)
 			read -p "Press [ENTER] to reboot." NOTHING; reboot
 		;;
-		reset)
-			echo "not implemented yet"
+		factory-reset)
+			TART_FLAG=F
+		;;
+		config-reset)
+			TART_FLAG=C
 		;;
 		*)
 			echo "
-		repair-options repair - Tries to repair the TyrianOS installation"
+		repair-options repair        - Tries to repair the TyrianOS installation
+		repair-options factory-reset - Resets your TyrianOS installation back to factory defaults"
 		;;
 	esac
 
