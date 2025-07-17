@@ -23,10 +23,10 @@ repair-options ACTION="" ADDITIONAL_OPTIONS="":
     		read -p "Press [ENTER] to reboot." NOTHING; reboot
     	;;
     	factory-reset)
-    		TART_FLAG=F
+    		sudo TART_FLAG=C /usr/share/tyrianos/scripts/admin-resettool
     	;;
     	config-reset)
-    		TART_FLAG=C
+    		TART_FLAG=P
     	;;
     	*)
     		echo "
