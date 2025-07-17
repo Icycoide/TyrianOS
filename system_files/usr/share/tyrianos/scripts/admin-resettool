@@ -3,3 +3,5 @@
 echo "-- TyrianOS Administrator Reset Tool"
 
 echo "-- Flag specified: $TART_FLAG"
+
+read -p "-- This option will uninstall ALL packages and delete ALL users irreversibly. Are you really sure you want to do this?"
