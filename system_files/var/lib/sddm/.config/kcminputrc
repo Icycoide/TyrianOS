@@ -1,0 +1,8 @@
+[Libinput][1267][12732][ASUE140D:00 04F3:31BC Touchpad]
+ClickMethod=2
+DisableWhileTyping=false
+Enabled=true
+NaturalScroll=true
+
+[Libinput][9589][2320][WDHT1F01:00 2575:0910]
+Enabled=true

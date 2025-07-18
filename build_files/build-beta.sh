@@ -140,6 +140,9 @@ rpm --import https://repo.charm.sh/yum/gpg.key
 limsg s 2 i "Installing packages: Tmux, Git"
 dnf5 install -y tmux git
 
+limsg s 2 i "Installing packages: Just"
+dnf5 install -y just
+
 limsg s 2 i "Installing packages: KDE Plasma Desktop, KDialog"
 dnf5 install -y @kde-desktop kdialog
 
