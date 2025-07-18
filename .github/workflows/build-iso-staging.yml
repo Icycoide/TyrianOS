@@ -20,7 +20,7 @@ on:
       - main
     paths:
       - './iso.toml'
-      - './.github/workflows/build-iso.yml'
+      - './.github/workflows/build-iso-staging.yml'
       - './Justfile'
 
 env:
