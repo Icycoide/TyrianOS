@@ -1,8 +1,8 @@
 [General]
-ColorScheme=TyrianOSLight
+ColorScheme=Monochrome
 
 [Icons]
-Theme=Papirus
+Theme=Papirus-Dark
 
 [KDE]
 widgetStyle=Breeze

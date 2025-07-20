@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-
-/usr/bin/just --justfile /usr/share/tyrianos/justfile "${@}"

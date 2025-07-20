@@ -27,15 +27,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/branding.sh && \
     ostree container commit
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
-    --mount=type=tmpfs,dst=/tmp \
-    systemctl enable initial-setup && \
-#   ln -s /etc/systemd/system/graphical.target.wants/initial-setup.service /usr/lib/systemd/system/initial-setup.service && \
-#   ln -s /etc/systemd/system/multi-user.target.wants/initial-setup.service /usr/lib/systemd/system/initial-setup.service && \
-    ostree container commit
-
 RUN rm -rf /tmp/* /var/* && \
     ostree container commit && \
     mkdir -p /tmp /var/tmp && \

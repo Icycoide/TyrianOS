@@ -1,5 +1,5 @@
 ---
-name: Build TyrianOS
+name: Build Custom Image
 on:
   pull_request:
     branches:
