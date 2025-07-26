@@ -24,19 +24,21 @@ full_reset() {
 
 full_reset.confirmed() {
 	killall plasmashell || true
+	echo "-- Determining next boot's fate (Enabling initial setup)"
+	systemctl enable initial-setup
 	echo "-- Cleaning up mutations..."
 	rpm-ostree cleanup -m
 	echo "-- Aggressively deleting all users, even if still logged in... (We're restarting, this will not matter.)"
 	for u in $(awk -F: '$3 >= 1000 {print $1}' /etc/passwd); do userdel -r -f "$u"; done
 	rm -rfv /home/* || true # in case users have been deleted but chose to keep their data
-	echo "-- Wiping /etc"
-	find /etc -mindepth 1 -maxdepth 1 ! -name 'machine-id' ! -name 'hostname' -exec rm -rf {} +
+	echo "-- Wiping /etc (while preserving machine-id, hostname, fstab and crypttab.)"
+	find /etc -mindepth 1 -maxdepth 1 ! -name 'machine-id' ! -name 'hostname' ! -name 'fstab' ! -name 'crypttab' -exec rm -rf {} +
 	echo "-- Recreating /etc"
 	cp -rTv /usr/etc /etc
-	echo "-- Determining next boot's fate (Enabling initial setup)"
-	systemctl enable initial-setup
 	echo "-- To fully finish, TyrianOS will reboot in 10 seconds."
-	sleep 10;reboot
+	sleep 9
+	echo "-- Goodbye."
+	sleep 1;reboot
 }
 
 
