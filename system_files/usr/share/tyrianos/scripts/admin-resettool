@@ -11,7 +11,7 @@ full_reset() {
 	echo "-- Make sure to keep your device plugged in, to prevent any interruption."
 	echo "-- Just in case, make sure to keep it connected to the internet as well."
 	read -p "-- This option will uninstall ALL packages and delete ALL users irreversibly. Are you really sure you want to do this? (y/n) " OPT
-	case OPT in
+	case $OPT in
 		Y|y)
 			full_reset.confirmed
 		;;
