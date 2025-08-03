@@ -14,7 +14,7 @@ IMAGE_LIKE="fedora"
 HOME_URL="https://icycoide.github.io/TyrianOS"
 SUPPORT_URL="https://github.com/Icycoide/TyrianOS/issues/"
 BUG_SUPPORT_URL="https://github.com/Icycoide/TyrianOS/issues/"
-CODE_NAME="Glarus"
+CODE_NAME="Toronto"
 #VERSION="${VERSION:-00.00000000}"
 IMAGE_NAME=tyrianos
 IMAGE_VENDOR=icycoide
@@ -27,7 +27,7 @@ sed -i "s|^HOME_URL=.*|HOME_URL=\"$HOME_URL\"|" /usr/lib/os-release
 sed -i "s|^SUPPORT_URL=.*|SUPPORT_URL=\"$SUPPORT_URL\"|" /usr/lib/os-release
 sed -i "s|^BUG_REPORT_URL=.*|BUG_REPORT_URL=\"$BUG_SUPPORT_URL\"|" /usr/lib/os-release
 sed -i "s|^DEFAULT_HOSTNAME=.*|DEFAULT_HOSTNAME=\"tyrianos\"|" /usr/lib/os-release
-sed -i "s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"Glarus\"|" /usr/lib/os-release
+sed -i "s|^VERSION_CODENAME=.*|VERSION_CODENAME=\"$CODE_NAME\"|" /usr/lib/os-release
 
 
 # Added in systemd 249.
