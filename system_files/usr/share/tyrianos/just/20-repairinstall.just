@@ -1,4 +1,4 @@
-# Repair options for TyrianOS
+# Repair options for TyrianOS (FACTORY RESET IN BETA)
 repair-options ACTION="" ADDITIONAL_OPTIONS="":
     #!/bin/bash
     ACTION={{ ACTION }}
@@ -23,6 +23,7 @@ repair-options ACTION="" ADDITIONAL_OPTIONS="":
     		read -p "Press [ENTER] to reboot." NOTHING; reboot
     	;;
     	factory-reset)
+		echo "Beta functionality, this command is NOT ready.";exit 1
     		sudo TART_FLAG=C /usr/share/tyrianos/scripts/admin-resettool
     	;;
     	config-reset)
