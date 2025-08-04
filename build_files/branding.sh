@@ -11,13 +11,12 @@ source /usr/lib/os-release || false
 
 IMAGE_PRETTY_NAME="TyrianOS"
 IMAGE_LIKE="fedora"
-HOME_URL="https://icycoide.github.io/TyrianOS"
-SUPPORT_URL="https://github.com/Icycoide/TyrianOS/issues/"
-BUG_SUPPORT_URL="https://github.com/Icycoide/TyrianOS/issues/"
+HOME_URL="https://arctine.rootsource.cc/TyrianOS"
+SUPPORT_URL="https://github.com/ArctineLabs/TyrianOS/issues/"
+BUG_SUPPORT_URL="https://github.com/ArctineLabs/TyrianOS/issues/"
 CODE_NAME="Toronto"
-#VERSION="${VERSION:-00.00000000}"
 IMAGE_NAME=tyrianos
-IMAGE_VENDOR=icycoide
+IMAGE_VENDOR=arctinelabs
 
 
 # OS Release File

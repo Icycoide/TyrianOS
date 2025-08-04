@@ -2,7 +2,7 @@
 <h1 align="center">TyrianOS Linux</h1>
 <p align="center">a general purpose fedora-based distro</p>
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos)](https://artifacthub.io/packages/search?repo=tyrianos) [![Build Custom Image](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml/badge.svg)](https://github.com/Icycoide/TyrianOS/actions/workflows/build.yml)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/tyrianos)](https://artifacthub.io/packages/search?repo=tyrianos) [![Build Custom Image](https://github.com/ArctineLabs/TyrianOS/actions/workflows/build.yml/badge.svg)](https://github.com/ArctineLabs/TyrianOS/actions/workflows/build.yml)
 
 # Purpose
 
@@ -10,6 +10,9 @@ WIP section
 
 TyrianOS is based on the following image:
 - Fedora: `ghcr.io/ublue-os/kinoite-main:42`
+
+TyrianOS EDGE (unstable) is based on the following image:
+- Fedora: `quay.io/fedora/fedora-kinoite:rawhide`
 
 It uses KDE Plasma as desktop environment and is meant for general use.
 
@@ -30,13 +33,13 @@ More things are announced to come to TyrianOS soon.
 
 On real hardware:
 
-1. Grab the latest ISO under artifacts from the latest successful job of workflow [Build ISOs](https://github.com/Icycoide/TyrianOS/actions/workflows/build-iso.yml)
+1. Grab the latest ISO under artifacts from the latest successful job of workflow [Build ISOs](https://github.com/ArctineLabs/TyrianOS/actions/workflows/build-iso.yml)
 2. Flash it on a USB or any other bootable media
 3. Boot into the media and follow the steps of the installer.
 
 In a virtual machine: 
 
-1. Grab the latest ISO under artifacts from the latest successful job of workflow [Build ISOs](https://github.com/Icycoide/TyrianOS/actions/workflows/build-iso.yml)
+1. Grab the latest ISO under artifacts from the latest successful job of workflow [Build ISOs](https://github.com/ArctineLabs/TyrianOS/actions/workflows/build-iso.yml)
 2. In the settings of the hypervisor, add the downloaded ISO as CD or generally media, and configure the image to be at the highest boot priority in the virtual machine's settings
 3. Boot into the image and follow the steps of the installer.
 
