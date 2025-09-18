@@ -8,7 +8,7 @@ on:
     - cron: '50 09 * * *'  # 9:50am UTC everyday
   push:
     branches:
-      - testing
+      - edge
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
