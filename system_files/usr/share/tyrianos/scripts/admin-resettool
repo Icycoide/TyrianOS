@@ -13,7 +13,7 @@ full_reset() {
 	read -p "-- This option will uninstall ALL packages and delete ALL users irreversibly. Are you really sure you want to do this? (y/n) " OPT
 	case $OPT in
 		Y|y)
-			full_reset.confirmed
+			echo "Not ready at all"
 		;;
 		*)
 			echo "-- TyrianOS System Reset Cancelled"

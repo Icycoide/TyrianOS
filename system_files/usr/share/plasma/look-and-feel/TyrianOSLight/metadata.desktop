@@ -1,0 +1,12 @@
+[Desktop Entry]
+Comment=Default light theme for TyrianOS
+Name=TyrianOS Light
+X-KDE-PluginInfo-Author=Arctine
+X-KDE-PluginInfo-Category=Plasma Look And Feel
+X-KDE-PluginInfo-Email=arctine@rootsource.cc
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-License=LGPL 2.1+
+X-KDE-PluginInfo-Name=TyrianOSLight
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=https://arctine.rootsource.cc/TyrianOS
+X-KDE-ServiceTypes=Plasma/LookAndFeel

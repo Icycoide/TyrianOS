@@ -1,0 +1,22 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "arctine@rootsource.cc",
+                "Name": "Arctine"
+            }
+        ],
+        "Category": "Plasma Look And Feel",
+        "ServiceTypes": [
+            "Plasma/LookAndFeel"
+        ],
+        "EnabledByDefault": true,
+        "Name": "TyrianOS Dark",
+        "Description": "Default dark theme for TyrianOS",
+        "Id": "TyrianOSDark",
+        "Version": "43",
+        "License": "LGPLv2",
+        "Website": "https://arctine.rootsource.cc/TyrianOS"
+    }
+}

@@ -1,7 +1,7 @@
 [customizations.installer.kickstart]
 contents = """
 %post
-bootc switch --mutate-in-place --transport registry ghcr.io/arctinelabs/tyrianos:latest
+bootc switch --mutate-in-place --transport registry ghcr.io/icycoide/tyrianos-edge:latest
 %end
 """
 
@@ -9,12 +9,11 @@ bootc switch --mutate-in-place --transport registry ghcr.io/arctinelabs/tyrianos
 enable = [
   "org.fedoraproject.Anaconda.Modules.Storage",
   "org.fedoraproject.Anaconda.Modules.Network",
-  "org.fedoraproject.Anaconda.Modules.Users",
   "org.fedoraproject.Anaconda.Modules.Timezone" 
   "org.fedoraproject.Anaconda.Modules.Users",
 ]
 disable = [
   "org.fedoraproject.Anaconda.Modules.Security",
   "org.fedoraproject.Anaconda.Modules.Services",
-  "org.fedoraproject.Anaconda.Modules.Subscription",
+  "org.fedoraproject.Anaconda.Modules.Subscription"
 ]

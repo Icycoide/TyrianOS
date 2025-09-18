@@ -11,9 +11,6 @@ WIP section
 TyrianOS is based on the following image:
 - Fedora: `ghcr.io/ublue-os/kinoite-main:42`
 
-TyrianOS EDGE (unstable) is based on the following image:
-- Fedora: `quay.io/fedora/fedora-kinoite:rawhide`
-
 It uses KDE Plasma as desktop environment and is meant for general use.
 
 # What makes TyrianOS different from normal Fedora?
@@ -299,4 +296,3 @@ This template comes with the necessary tooling to index your image on [artifacth
 - [m2os](https://github.com/m2giles/m2os)
 - [bos](https://github.com/bsherman/bos)
 - [homer](https://github.com/bketelsen/homer/)
-e
