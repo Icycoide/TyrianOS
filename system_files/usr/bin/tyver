@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source /usr/lib/os-release
+
+yad --about \
+        --image=tux \
+        --website-label="Homepage" \
+        --website="https://icycoide.github.io/TyrianOS" \
+        --authors="Icycoide" \
+        --license="Apache-2.0 and others" \
+        --comments="A Fedora Kinoite-based operating system." \
+        --copyright="Copyright (c) 2025 Icycoide" \
+        --pversion="$VERSION" \
+        --pname="TyrianOS"

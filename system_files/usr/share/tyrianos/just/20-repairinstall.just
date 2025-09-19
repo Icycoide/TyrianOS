@@ -23,7 +23,7 @@ repair-options ACTION="" ADDITIONAL_OPTIONS="":
     		read -p "Press [ENTER] to reboot." NOTHING; reboot
     	;;
     	factory-reset)
-		echo "Beta functionality, this command is NOT ready.";exit 1
+        echo "Beta functionality, this command is NOT ready.";exit 1
     		sudo TART_FLAG=C /usr/share/tyrianos/scripts/admin-resettool
     	;;
     	config-reset)

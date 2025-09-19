@@ -24,7 +24,7 @@ on:
       - './Justfile'
 
 env:
-  IMAGE_REGISTRY: "ghcr.io/Icycoide/TyrianOS-EDGE"
+  IMAGE_REGISTRY: "ghcr.io/ArctineLabs/TyrianOS-EDGE"
   DEFAULT_TAG: "latest"
 
 concurrency:
