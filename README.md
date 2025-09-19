@@ -1,3 +1,5 @@
+# :warning: This repository is INACTIVE!!! The new repo is [here](https://github.com/ArctineLabs/TyrianOS)
+
 <p align="center"><img src="system_files/usr/share/icons/hicolor/scalable/apps/start-here.svg" height="120"></p>
 <h1 align="center">TyrianOS Linux</h1>
 <p align="center">a general purpose fedora-based distro</p>
